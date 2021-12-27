@@ -1,0 +1,32 @@
+<br><br><br>
+
+<div class="container">
+    <a class="btn btn-dark" routerLink="/AddProduct">Add New Product</a>
+    <br><br><br>
+    <ul class="responsive-table">
+        <li class="table-header">
+            <div class="col col-1">Name</div>
+            <div class="col col-2">Price</div>
+            <div class="col col-3">Description</div>
+            <div class="col col-4">Image</div>
+            <div class="col col-5">Category</div>
+            <div class="col col-6">Action</div>
+        </li>
+        <div>
+            <li class="table-row" *ngFor="let item of product">
+                <div class="col col-1" data-label="Name">{{item.product_name}}</div>
+                <div class="col col-2" data-label="Price">{{item.price}}</div>
+                <div class="col col-3" data-label="Description">{{item.description}}</div>
+                <div class="col col-4" data-label="Image">
+                    <img src="http://localhost:53823{{item.image}}" width="50" height="50">
+                </div>
+                <div class="col col-5" data-label="Category">{{item.Category.cat_name}}</div>
+                <div class="col col-6" data-label="Action">
+                    <button type="button" class="btn btn-outline-dark upd" style="margin-right: 5px;" routerLink="/EditProduct/{{item.product_id}}">Update</button>
+                    <button type="button" class="btn btn-outline-dark" (click)="deleteProduct(item.product_id)" routerLink="/products">Delete</button>
+                </div>
+            </li>
+        </div>
+
+    </ul>
+</div>
